@@ -20,6 +20,13 @@
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
         };
+        gres: grav_escap {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp ESC>, <&kp GRAVE>;
+            mods = <(MOD_LGUI|MOD_LSFT|MOD_RGUI|MOD_RSFT)>;
+            keep-mods = <(MOD_LGUI)>;
+        };
     };
 
     conditional_layers {
@@ -44,7 +51,7 @@
         //│      Z       │      X       │      C       │      V       │      B       │   │      N       │      M       │     , <      │     . >      │     / ?      │
                &kp Z          &kp X          &kp C          &kp V         &kp B               &kp N          &kp M         &kp COMMA       &kp DOT       &kp FSLH
         //╰──────────────┴──────────────┴──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┴──────────────┴──────────────╯
-                                                            &gresc       &lt 1 TAB          &lt 2 SPACE       RET 
+                                                            &gres        &lt 1 TAB          &lt 2 SPACE       RET 
         //                                             ╰──────────────┴──────────────╯   ╰──────────────┴──────────────╯
             >;
         };
@@ -55,10 +62,10 @@
         //│       1      │      2       │       3      │      4       │      5       │   │      6       │       7      │       8      │       9      │      0       │
                &kp N1         &kp N2         &kp N3         &kp N4        &kp N5             &kp N6          &kp N7          &kp N8        &kp N9        &kp N0
         //├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-        //│     F2       │    F5        │    F9        │   F10        │    F12       │   │     LEFT     │     DOWN     │      UP      │     RIGHT    │     ' "      │
-           HRML(F2,           F5,            F9,           F10)          &kp F12             &kp LEFT       &kp DOWN        &kp UP        &kp RIGHT   &ht RSHFT SQT
+        //│     F2       │    F5        │    F9        │     F10      │    F12       │   │     LEFT     │     DOWN     │      UP      │     RIGHT    │     ' "      │
+           HRML(F2,           F5,            F9,             F10)        &kp F12             &kp LEFT       &kp DOWN        &kp UP        &kp RIGHT    &ht RSHFT SQT
         //├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-        //│    GRAVE     │  Screenshot  │   Screenshot │   CAPS       │    DEL       │   │       {      │       }      │       -      │       =      │       \      │
+        //│    GRAVE     │  Screenshot  │   Screenshot │     CAPS     │    DEL       │   │       {      │       }      │       -      │       =      │       \      │
              &kp GRAVE    &kp LG(LS(N5)) &kp LG(LS(N4))   &caps_word     &kp DEL             &kp LBKT       &kp RBKT      &kp MINUS        &kp EQUAL      &kp BSLH
         //╰──────────────┴──────────────┴──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┴──────────────┴──────────────╯
                                                             &trans         &trans            &kp BSPC        &trans
