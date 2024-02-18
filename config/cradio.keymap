@@ -20,7 +20,7 @@
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
         };
-        gresc: grave_escape {
+        gres: grave_escape {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp ESC>, <&kp GRAVE>;
@@ -51,7 +51,7 @@
         //│      Z       │      X       │      C       │      V       │      B       │   │      N       │      M       │     , <      │     . >      │     / ?      │
                &kp Z          &kp X          &kp C          &kp V         &kp B               &kp N          &kp M         &kp COMMA       &kp DOT       &kp FSLH
         //╰──────────────┴──────────────┴──────────────┼──────────────┼──────────────┤   ├──────────────┼──────────────┼──────────────┴──────────────┴──────────────╯
-                                                            &gresc       &lt 1 TAB          &lt 2 SPACE       RET 
+                                                            &gres        &lt 1 TAB          &lt 2 SPACE       RET 
         //                                             ╰──────────────┴──────────────╯   ╰──────────────┴──────────────╯
             >;
         };
